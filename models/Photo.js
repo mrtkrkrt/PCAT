@@ -12,5 +12,5 @@ const GameSchema = new Schema({
     },
 });
 
-const Photo = mongoose.model('Game', GameSchema);
+const Photo = mongoose.model('Photo', GameSchema);
 module.exports = Photo;

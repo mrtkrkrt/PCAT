@@ -18,8 +18,20 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', async (req, res) => {
+    const photos = await Photo.find({});
+    console.log(photos);
+    res.render('index', {
+        photos,
+    });
+});
+
+app.get('/:id', async (req, res) => {
+    const photo = await Photo.findById(req.params.id);
+    console.log(photo)
+    res.render('photo', {
+        photo,
+    });
 });
 
 app.get('/about', (req, res) => {
