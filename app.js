@@ -32,7 +32,6 @@ app.get('/', async (req, res) => {
             console.log(reject)
         }
     })
-
     promise.then((message) => {
         res.render('index', {
             photos
